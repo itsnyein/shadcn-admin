@@ -42,9 +42,11 @@ export function useCircularTransition(): CircularTransitionHook {
           callback();
         });
 
-        transition.finished.finally(() => {
-          isTransitioningRef.current = false;
-        });
+        transition.finished
+          .catch(() => {})
+          .finally(() => {
+            isTransitioningRef.current = false;
+          });
       } else {
         // Fallback for browsers without View Transitions API
         callback();

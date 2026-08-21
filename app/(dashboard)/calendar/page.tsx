@@ -9,11 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Calendar } from "@/features/calendar/components/calendar";
-import {
-  calendars,
-  eventDates,
-  events,
-} from "@/features/calendar/data";
+import { calendars, eventDates, events } from "@/features/calendar/data";
 import { cn } from "@/lib/utils";
 import {
   ArrowUpRight,

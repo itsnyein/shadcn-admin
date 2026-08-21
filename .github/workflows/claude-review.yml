@@ -63,17 +63,17 @@ jobs:
             Production Readiness: migration strategy, backward compatibility, no obvious bugs
 
             Project Conventions:
-            - Package manager: pnpm only — never npm or yarn
+            - Package manager: pnpm only - never npm or yarn
             - Folder structure: feature code in features/[name]/{components,hooks,schema.ts,data.ts,types.ts}; shared UI in components/ui/; layout in components/layout/; general shared in components/shared/
-            - Auth: better-auth — use lib/auth.ts (server) and lib/auth-client.ts (client); never roll custom sessions
-            - Database: Drizzle ORM — watch for N+1 queries, unbounded fetches, missing indexes; migration files must be present for schema changes
+            - Auth: better-auth - use lib/auth.ts (server) and lib/auth-client.ts (client); never roll custom sessions
+            - Database: Drizzle ORM - watch for N+1 queries, unbounded fetches, missing indexes; migration files must be present for schema changes
             - Config: sidebar nav in config/sidebar.ts; theme config in config/theme-data.ts
-            - Utilities: shared utils in lib/ — never recreate helpers that exist there (export-data, format-message-time, etc.)
-            - Components: shadcn/ui primitives from components/ui/ only — no raw Radix imports where a shadcn wrapper exists
-            - Styling: Tailwind CSS utility classes — no inline styles, no hardcoded colors (use CSS variables)
+            - Utilities: shared utils in lib/ - never recreate helpers that exist there (export-data, format-message-time, etc.)
+            - Components: shadcn/ui primitives from components/ui/ only - no raw Radix imports where a shadcn wrapper exists
+            - Styling: Tailwind CSS utility classes - no inline styles, no hardcoded colors (use CSS variables)
             - Icons: lucide-react only
-            - TypeScript: strict mode — no any types, no missing return types, no unsafe assertions
-            - AI features: API calls to Anthropic only via app/api/chat/route.ts — never from client components
+            - TypeScript: strict mode - no any types, no missing return types, no unsafe assertions
+            - AI features: API calls to Anthropic only via app/api/chat/route.ts - never from client components
 
             ## Step 3: Post review
 
@@ -129,7 +129,7 @@ jobs:
 
             ---
 
-            **Verdict:** [One of: "Ready to merge" / "Needs changes — [list critical items]" / "No critical issues. Remaining items can be iterated on later."]
+            **Verdict:** [One of: "Ready to merge" / "Needs changes - [list critical items]" / "No critical issues. Remaining items can be iterated on later."]
 
             FORMAT END
 
@@ -139,7 +139,7 @@ jobs:
 
             DO:
             - Number ALL issues sequentially across sections (1, 2, 3... not restarting per section)
-            - Include code snippets for every issue — show the problematic code AND the fix
+            - Include code snippets for every issue - show the problematic code AND the fix
             - Be specific with file:line references
             - Categorize by actual severity (not everything is Critical)
             - Explain WHY each issue matters
@@ -148,7 +148,7 @@ jobs:
 
             DON'T:
             - Use any emojis
-            - Post inline comments — only ONE single PR comment
+            - Post inline comments - only ONE single PR comment
             - Say "looks good" without thorough review
             - Mark nitpicks as Critical
             - Be vague ("improve error handling")
