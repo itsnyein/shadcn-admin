@@ -34,7 +34,7 @@ When contributing to Shadcn Admin:
 2. Clone your fork locally:
 
    ```bash
-   git clone https://github.com/Its-Nyein/shadcn-admin.git
+   git clone https://github.com/itsnyein/shadcn-admin.git
    cd shadcn-admin
    ```
 
