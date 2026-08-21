@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Check, Copy } from "lucide-react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export function CopyCommand({
   command,
@@ -23,7 +24,9 @@ export function CopyCommand({
     try {
       await navigator.clipboard.writeText(command);
       setCopied(true);
-    } catch {}
+    } catch {
+      toast.error("Could not copy to clipboard. Select the command manually.");
+    }
   };
 
   return (

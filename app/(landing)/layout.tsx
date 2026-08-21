@@ -4,8 +4,6 @@ import { LandingThemePanel } from "@/features/landing/components/landing-theme-p
 import { Rails } from "@/features/landing/components/landing-shell";
 import { ReactNode } from "react";
 
-export const dynamic = "force-dynamic";
-
 export default function LandingLayout({ children }: { children: ReactNode }) {
   return (
     <div className="relative flex min-h-svh flex-col">

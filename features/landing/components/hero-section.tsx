@@ -1,8 +1,8 @@
 import { buttonVariants } from "@/components/ui/button";
 import { HERO_SPECS, HERO_TRUST } from "@/features/landing/data";
 import { GITHUB_URL, formatStars, getRepoStars } from "@/lib/github";
-import { IconBrandGithub, IconStar } from "@tabler/icons-react";
-import { ArrowRight } from "lucide-react";
+import { IconBrandGithub } from "@tabler/icons-react";
+import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
 import { Section } from "./landing-shell";
 
@@ -58,7 +58,7 @@ export async function HeroSection() {
               <>
                 <span aria-hidden className="bg-border ml-1 h-4 w-px" />
                 <span className="flex items-center gap-1 tabular-nums">
-                  <IconStar className="size-3.5" />
+                  <Star className="size-3.5" />
                   {formatStars(stars)}
                 </span>
               </>

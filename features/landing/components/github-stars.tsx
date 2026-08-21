@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { GITHUB_URL, formatStars, getRepoStars } from "@/lib/github";
-import { IconBrandGithub, IconStar } from "@tabler/icons-react";
+import { IconBrandGithub } from "@tabler/icons-react";
+import { Star } from "lucide-react";
 import Link from "next/link";
 
 export async function GithubStars({ className }: { className?: string }) {
@@ -14,7 +15,7 @@ export async function GithubStars({ className }: { className?: string }) {
       aria-label={
         stars === null
           ? "View this project on GitHub"
-          : `Star this project on GitHub - ${stars} stars`
+          : `Star this project on GitHub - ${stars} ${stars === 1 ? "star" : "stars"}`
       }
       className={cn(
         "group bg-background/60 hover:border-foreground/25 hover:bg-accent/40 inline-flex items-center rounded-full border text-sm font-medium transition-colors",
@@ -30,7 +31,7 @@ export async function GithubStars({ className }: { className?: string }) {
         <>
           <span aria-hidden className="bg-border h-4 w-px" />
           <span className="flex items-center gap-1 py-1.5 pr-3 pl-2.5 tabular-nums">
-            <IconStar className="size-3.5 transition-transform duration-300 group-hover:scale-115" />
+            <Star className="size-3.5 transition-transform duration-300 group-hover:scale-115" />
             {formatStars(stars)}
           </span>
         </>

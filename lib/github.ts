@@ -1,8 +1,10 @@
+import { cache } from "react";
+
 export const GITHUB_OWNER = "Its-Nyein";
 export const GITHUB_REPO = "shadcn-admin";
 export const GITHUB_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`;
 
-export async function getRepoStars(): Promise<number | null> {
+export const getRepoStars = cache(async (): Promise<number | null> => {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`,
@@ -25,7 +27,7 @@ export async function getRepoStars(): Promise<number | null> {
   } catch {
     return null;
   }
-}
+});
 
 export function formatStars(count: number): string {
   if (count < 1000) return String(count);

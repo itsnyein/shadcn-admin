@@ -1,5 +1,4 @@
 import { buttonVariants } from "@/components/ui/button";
-import { isAuthenticated } from "@/lib/session";
 import { ArrowRight, Command } from "lucide-react";
 import Link from "next/link";
 import { GithubStars } from "./github-stars";
@@ -11,9 +10,7 @@ const NAV_LINKS = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export async function LandingNavbar() {
-  const authenticated = await isAuthenticated();
-
+export function LandingNavbar() {
   return (
     <header className="bg-background/80 sticky top-0 z-40 border-b border-dashed backdrop-blur-xl">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
@@ -41,31 +38,20 @@ export async function LandingNavbar() {
         <div className="flex shrink-0 items-center gap-2">
           <GithubStars className="hidden sm:inline-flex" />
 
-          {authenticated ? (
-            <Link href="/dashboard" className={buttonVariants({ size: "sm" })}>
-              Dashboard <ArrowRight className="size-4" />
-            </Link>
-          ) : (
-            <>
-              <Link
-                href="/sign-in"
-                className={buttonVariants({
-                  size: "sm",
-                  variant: "ghost",
-                  className: "hidden sm:inline-flex",
-                })}
-              >
-                Sign in
-              </Link>
+          <Link
+            href="/sign-in"
+            className={buttonVariants({
+              size: "sm",
+              variant: "ghost",
+              className: "hidden sm:inline-flex",
+            })}
+          >
+            Sign in
+          </Link>
 
-              <Link
-                href="/dashboard"
-                className={buttonVariants({ size: "sm" })}
-              >
-                Live demo <ArrowRight className="size-4" />
-              </Link>
-            </>
-          )}
+          <Link href="/dashboard" className={buttonVariants({ size: "sm" })}>
+            Live demo <ArrowRight className="size-4" />
+          </Link>
         </div>
       </nav>
     </header>
