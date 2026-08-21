@@ -31,11 +31,7 @@ import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
 import type { Table } from "@tanstack/react-table";
 import { Download, PlusCircle, Search, X } from "lucide-react";
 import { useCallback, useRef } from "react";
-import {
-  gateways,
-  paymentMethods,
-  transactionStatuses,
-} from "../data";
+import { gateways, paymentMethods, transactionStatuses } from "../data";
 import { TransactionsViewOptions } from "./transactions-view-options";
 
 interface TransactionsTableToolbarProps<TData> {
@@ -110,7 +106,7 @@ function FacetedFilter<TData>({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0" align="start">
+      <PopoverContent className="w-50 p-0" align="start">
         <Command>
           <CommandInput placeholder={title} />
           <CommandList>
@@ -194,7 +190,7 @@ export function TransactionsTableToolbar<TData>({
             placeholder="Search transactions... ( / )"
             value={searchValue}
             onChange={(event) => handleSearchChange(event.target.value)}
-            className="h-8 w-[200px] pl-8 lg:w-[280px]"
+            className="h-8 w-50 pl-8 lg:w-70"
           />
         </div>
         <FacetedFilter

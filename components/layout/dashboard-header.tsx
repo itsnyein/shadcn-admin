@@ -1,6 +1,9 @@
 "use client";
 
-import { CommandSearch, SearchTrigger } from "@/components/layout/command-search";
+import {
+  CommandSearch,
+  SearchTrigger,
+} from "@/components/layout/command-search";
 import { ProfileDropdown } from "@/components/layout/profile-dropdown";
 import { ThemeCustomizer } from "@/components/shared/theme-customizer";
 import { ToggleTheme } from "@/components/shared/theme-toggle";
