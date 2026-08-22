@@ -4,9 +4,9 @@ FROM node:22-alpine AS base
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-RUN corepack enable
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 ENV HUSKY=0
+RUN corepack enable
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
@@ -14,8 +14,8 @@ RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
 # Stage 2: Build the application
 FROM base AS builder
 WORKDIR /app
-RUN corepack enable
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+RUN corepack enable
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
