@@ -12,6 +12,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { tweakcnThemes } from "@/config/theme-data";
 import { useSidebarConfig } from "@/contexts/sidebar-context";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useThemeManager } from "@/hooks/use-theme-manager";
 import type { ImportedTheme } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -37,6 +38,7 @@ export function ThemeCustomizer({ open, onOpenChange }: ThemeCustomizerProps) {
   } = useThemeManager();
   const { config: sidebarConfig, updateConfig: updateSidebarConfig } =
     useSidebarConfig();
+  const isMobile = useIsMobile();
 
   const [activeTab, setActiveTab] = React.useState("theme");
   const [selectedTheme, setSelectedTheme] = React.useState("default");
@@ -112,8 +114,19 @@ export function ThemeCustomizer({ open, onOpenChange }: ThemeCustomizerProps) {
     <>
       <Sheet open={open} onOpenChange={onOpenChange} modal={false}>
         <SheetContent
-          side={sidebarConfig.side === "left" ? "right" : "left"}
-          className="w-[400px] p-0 gap-0 pointer-events-auto [&>button]:hidden overflow-hidden flex flex-col"
+          side={
+            isMobile
+              ? "bottom"
+              : sidebarConfig.side === "left"
+                ? "right"
+                : "left"
+          }
+          className={cn(
+            "pointer-events-auto flex flex-col gap-0 overflow-hidden p-0 [&>button]:hidden",
+            isMobile
+              ? "h-[60svh] rounded-t-xl border-t"
+              : "w-[400px] sm:max-w-none",
+          )}
           onInteractOutside={(e) => {
             // Prevent the sheet from closing when dialog is open
             if (importModalOpen) {

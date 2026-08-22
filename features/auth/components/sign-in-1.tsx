@@ -21,7 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff } from "lucide-react";
+import { Command, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -82,8 +82,8 @@ export function SignIn1({ className, ...props }: React.ComponentProps<"div">) {
         <Card className="shadow-lg">
           <CardHeader className="space-y-1 pb-4">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-bold">
-                SA
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                <Command className="size-5" />
               </div>
             </div>
             <CardTitle className="text-2xl text-center">Welcome back</CardTitle>

@@ -7,7 +7,7 @@ import {
   IconSettings,
   IconUsers,
 } from "@tabler/icons-react";
-import { ChevronRight, Search } from "lucide-react";
+import { ChevronRight, Command, Search } from "lucide-react";
 import { ReactNode } from "react";
 
 const SIDEBAR_ITEMS = [
@@ -24,8 +24,8 @@ export function MockDashboardUI({ children }: { children: ReactNode }) {
     <div className="flex text-sm">
       <aside className="hidden w-52 shrink-0 flex-col border-r border-dashed p-3 md:flex">
         <div className="flex items-center gap-2 px-1 pb-4">
-          <span className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md text-[10px] font-bold">
-            SA
+          <span className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
+            <Command className="size-3.5" />
           </span>
           <span className="text-[13px] font-semibold tracking-tight">
             Shadcn Admin

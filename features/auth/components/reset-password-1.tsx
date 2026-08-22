@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   CheckCircle2,
+  Command,
   Eye,
   EyeOff,
   KeyRound,
@@ -133,7 +134,7 @@ export default function ResetPassword1() {
         <div className="relative z-10 flex h-full flex-col justify-between p-12">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="bg-primary text-primary-foreground flex h-12 w-12 items-center justify-center rounded-xl text-lg font-bold transition-transform group-hover:scale-105">
-              SA
+              <Command className="size-6" />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-semibold">Shadcn Admin</span>
@@ -226,8 +227,8 @@ export default function ResetPassword1() {
       <div className="flex items-center justify-center bg-background p-6 lg:p-12">
         <div className="mx-auto w-full max-w-100 space-y-8">
           <div className="flex items-center justify-center gap-3 lg:hidden">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-bold">
-              SA
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+              <Command className="size-5" />
             </div>
             <span className="text-lg font-semibold">Shadcn Admin</span>
           </div>

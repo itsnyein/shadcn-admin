@@ -14,7 +14,7 @@ export function WorkflowSection() {
 
       <ol className="mt-14 grid divide-x divide-y divide-dashed border border-dashed lg:grid-cols-3">
         {WORKFLOW_STEPS.map((item) => (
-          <li key={item.step} className="flex flex-col p-6 sm:p-7">
+          <li key={item.step} className="flex min-w-0 flex-col p-6 sm:p-7">
             <span className="text-primary/40 font-mono text-3xl font-semibold">
               {item.step}
             </span>

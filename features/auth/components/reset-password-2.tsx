@@ -21,6 +21,7 @@ import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   CheckCircle2,
+  Command,
   Eye,
   EyeOff,
   KeyRound,
@@ -117,8 +118,8 @@ export default function ResetPassword2() {
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="flex items-center justify-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-bold">
-            SA
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+            <Command className="size-5" />
           </div>
           <span className="text-lg font-semibold">Shadcn Admin</span>
         </div>
