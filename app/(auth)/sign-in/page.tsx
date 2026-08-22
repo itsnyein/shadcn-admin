@@ -1,3 +1,4 @@
+import { Command } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import SignIn from "@/features/auth/components/sign-in";
 import { Suspense } from "react";
@@ -7,8 +8,8 @@ function SignInFallback() {
     <div className="grid min-h-svh lg:grid-cols-[1.05fr_1fr]">
       <aside className="bg-muted/30 hidden border-r border-dashed lg:flex lg:flex-col lg:justify-between lg:p-12">
         <div className="flex items-center gap-3">
-          <span className="bg-primary text-primary-foreground flex size-10 items-center justify-center rounded-lg text-sm font-bold">
-            SA
+          <span className="bg-primary text-primary-foreground flex size-10 items-center justify-center rounded-lg">
+            <Command className="size-5" />
           </span>
           <span className="flex flex-col gap-1">
             <span className="text-[15px] font-semibold tracking-tight">

@@ -11,8 +11,10 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { tweakcnThemes } from "@/config/theme-data";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useThemeManager } from "@/hooks/use-theme-manager";
 import type { ImportedTheme } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import { Palette, RotateCcw, X } from "lucide-react";
 import * as React from "react";
 
@@ -27,6 +29,7 @@ export function LandingThemePanel() {
     setBrandColorsValues,
   } = useThemeManager();
 
+  const isMobile = useIsMobile();
   const [open, setOpen] = React.useState(false);
   const [selectedTheme, setSelectedTheme] = React.useState("");
   const [selectedTweakcnTheme, setSelectedTweakcnTheme] = React.useState("");
@@ -92,8 +95,13 @@ export function LandingThemePanel() {
 
       <Sheet open={open} onOpenChange={setOpen} modal={false}>
         <SheetContent
-          side="right"
-          className="pointer-events-auto flex w-100 flex-col gap-0 overflow-hidden p-0 [&>button]:hidden"
+          side={isMobile ? "bottom" : "right"}
+          className={cn(
+            "pointer-events-auto flex flex-col gap-0 overflow-hidden p-0 [&>button]:hidden",
+            isMobile
+              ? "h-[60svh] rounded-t-xl border-t"
+              : "w-100 sm:max-w-none",
+          )}
           onInteractOutside={(e) => {
             if (importModalOpen) e.preventDefault();
           }}

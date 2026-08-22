@@ -1,3 +1,4 @@
+import { Command } from "lucide-react";
 import { SignUp2 } from "@/features/auth/components/sign-up-2";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,8 +9,8 @@ export default function SignUp2Page() {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link href="/" className="flex items-center gap-2 font-medium">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-bold">
-              SA
+            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
+              <Command className="size-4" />
             </div>
             <span>Shadcn Admin</span>
           </Link>

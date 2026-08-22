@@ -39,7 +39,9 @@ export function CopyCommand({
         className,
       )}
     >
-      <code className="truncate font-mono text-xs sm:text-sm">{command}</code>
+      <code className="min-w-0 truncate font-mono text-xs sm:text-sm">
+        {command}
+      </code>
 
       <span className="text-muted-foreground group-hover:text-foreground shrink-0 transition-colors">
         {copied ? (

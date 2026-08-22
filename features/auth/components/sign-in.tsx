@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/contexts/auth-context";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Eye, EyeOff } from "lucide-react";
+import { Command, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -76,10 +76,10 @@ export default function SignIn() {
       <SignInBrandPanel />
 
       <div className="flex items-center justify-center bg-background p-6 lg:p-12">
-        <div className="mx-auto w-full max-w-[400px] space-y-8">
+        <div className="mx-auto w-full max-w-100 space-y-8">
           <div className="flex items-center justify-center gap-3 lg:hidden">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-bold">
-              SA
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+              <Command className="size-5" />
             </div>
             <span className="text-lg font-semibold">Shadcn Admin</span>
           </div>

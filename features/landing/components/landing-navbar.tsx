@@ -1,4 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { ArrowRight, Command } from "lucide-react";
 import Link from "next/link";
 import { GithubStars } from "./github-stars";
@@ -36,20 +37,25 @@ export function LandingNavbar() {
         </div>
 
         <div className="flex shrink-0 items-center gap-2">
-          <GithubStars className="hidden sm:inline-flex" />
+          <GithubStars />
 
           <Link
             href="/sign-in"
-            className={buttonVariants({
-              size: "sm",
-              variant: "ghost",
-              className: "hidden sm:inline-flex",
-            })}
+            className={cn(
+              buttonVariants({ size: "sm", variant: "ghost" }),
+              "hidden sm:inline-flex",
+            )}
           >
             Sign in
           </Link>
 
-          <Link href="/dashboard" className={buttonVariants({ size: "sm" })}>
+          <Link
+            href="/dashboard"
+            className={cn(
+              buttonVariants({ size: "sm" }),
+              "hidden sm:inline-flex",
+            )}
+          >
             Live demo <ArrowRight className="size-4" />
           </Link>
         </div>
