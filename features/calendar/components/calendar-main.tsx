@@ -48,7 +48,6 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { type CalendarEvent } from "../types";
 
-// Import data
 import eventsData from "@/features/calendar/data/events.json";
 
 interface CalendarMainProps {
@@ -66,7 +65,6 @@ export function CalendarMain({
   events,
   onEventClick,
 }: CalendarMainProps) {
-  // Convert JSON events to CalendarEvent objects with proper Date objects, fallback to imported data
   const sampleEvents: CalendarEvent[] =
     events ||
     eventsData.map((event) => ({
@@ -92,7 +90,6 @@ export function CalendarMain({
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(currentDate);
 
-  // Extend to show full weeks (including previous/next month days)
   const calendarStart = new Date(monthStart);
   calendarStart.setDate(calendarStart.getDate() - monthStart.getDay());
 
@@ -134,7 +131,6 @@ export function CalendarMain({
 
     return (
       <div className="flex-1 bg-background">
-        {/* Calendar Header */}
         <div className="grid grid-cols-7 border-b">
           {weekDays.map((day) => (
             <div
@@ -146,7 +142,6 @@ export function CalendarMain({
           ))}
         </div>
 
-        {/* Calendar Body */}
         <div className="grid grid-cols-7 flex-1">
           {calendarDays.map((day) => {
             const dayEvents = getEventsForDay(day);
@@ -160,11 +155,10 @@ export function CalendarMain({
                 className={cn(
                   "min-h-[120px] border-r border-b last:border-r-0 p-2 cursor-pointer transition-colors",
                   isCurrentMonth
-                    ? "bg-background hover:bg-violet-500/5"
+                    ? "bg-background hover:bg-muted/50"
                     : "bg-muted/30 text-muted-foreground",
-                  isSelected &&
-                    "ring-2 ring-violet-500 ring-inset bg-violet-500/5",
-                  isDayToday && "bg-violet-500/10",
+                  isSelected && "ring-2 ring-primary ring-inset bg-primary/5",
+                  isDayToday && "bg-primary/10",
                 )}
                 onClick={() => onDateSelect?.(day)}
               >
@@ -173,7 +167,7 @@ export function CalendarMain({
                     className={cn(
                       "text-sm font-medium",
                       isDayToday &&
-                        "bg-violet-500 text-white rounded-md w-6 h-6 flex items-center justify-center text-xs",
+                        "bg-primary text-primary-foreground rounded-md w-6 h-6 flex items-center justify-center text-xs",
                     )}
                   >
                     {format(day, "d")}
@@ -224,7 +218,7 @@ export function CalendarMain({
           {upcomingEvents.map((event) => (
             <Card
               key={event.id}
-              className="cursor-pointer hover:shadow-md transition-shadow border-border/50 hover:border-violet-500/30"
+              className="cursor-pointer hover:shadow-md transition-shadow border-border/50 hover:border-border"
               onClick={() => handleEventClick(event)}
             >
               <CardContent className="px-4">
@@ -283,10 +277,8 @@ export function CalendarMain({
 
   return (
     <div className="flex flex-col h-full">
-      {/* Header */}
       <div className="flex flex-col flex-wrap gap-4 p-6 border-b md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4 flex-wrap">
-          {/* Mobile Menu Button */}
           <Button
             variant="outline"
             size="sm"
@@ -329,13 +321,11 @@ export function CalendarMain({
         </div>
 
         <div className="flex flex-col gap-3 md:flex-row md:items-center">
-          {/* Search */}
           <div className="relative">
             <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
             <Input placeholder="Search events..." className="pl-10 w-64" />
           </div>
 
-          {/* View Mode Toggle */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="cursor-pointer">
@@ -365,10 +355,8 @@ export function CalendarMain({
         </div>
       </div>
 
-      {/* Calendar Content */}
       {viewMode === "month" ? renderCalendarGrid() : renderListView()}
 
-      {/* Event Detail Dialog */}
       <Dialog open={showEventDialog} onOpenChange={setShowEventDialog}>
         <DialogContent className="max-w-md">
           <DialogHeader>

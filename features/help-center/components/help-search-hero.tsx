@@ -9,7 +9,7 @@ export function HelpSearchHero() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="relative overflow-hidden rounded-xl border bg-linear-to-br from-violet-500/5 via-background to-fuchsia-500/5 p-8 md:p-12">
+    <div className="relative overflow-hidden rounded-xl border bg-card p-8 md:p-12">
       <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
           How can we help you?

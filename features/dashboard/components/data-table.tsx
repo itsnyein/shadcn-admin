@@ -409,7 +409,6 @@ export function DataTable({
     [data],
   );
 
-  // Create separate table instances for each tab
   const pastPerformanceIds = React.useMemo<UniqueIdentifier[]>(
     () => pastPerformance?.map(({ id }) => id) || [],
     [pastPerformance],
@@ -570,7 +569,6 @@ export function DataTable({
     }
   }
 
-  // Component for rendering table content
   const TableContent = ({
     currentTable,
     currentDataIds,
@@ -581,7 +579,7 @@ export function DataTable({
     handleCurrentDragEnd: (event: DragEndEvent) => void;
   }) => (
     <>
-      <div className="overflow-hidden rounded-lg border border-border/50 bg-linear-to-br from-violet-500/5 via-background to-background shadow-sm">
+      <div className="overflow-hidden rounded-lg border border-border/50 bg-card shadow-sm">
         <DndContext
           collisionDetection={closestCenter}
           modifiers={[restrictToVerticalAxis]}
@@ -801,7 +799,7 @@ export function DataTable({
         value="outline"
         className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6"
       >
-        <div className="overflow-hidden rounded-lg border border-border/50 bg-linear-to-br from-violet-500/5 via-background to-background shadow-sm">
+        <div className="overflow-hidden rounded-lg border border-border/50 bg-card shadow-sm">
           <DndContext
             collisionDetection={closestCenter}
             modifiers={[restrictToVerticalAxis]}

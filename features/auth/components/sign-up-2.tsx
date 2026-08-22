@@ -78,7 +78,6 @@ export function SignUp2({ className, ...props }: React.ComponentProps<"div">) {
       </div>
 
       <div className="grid gap-4">
-        {/* Social Login Buttons */}
         <div className="grid grid-cols-2 gap-3">
           <Button
             variant="outline"
@@ -322,14 +321,14 @@ export function SignUp2({ className, ...props }: React.ComponentProps<"div">) {
                     I agree to the{" "}
                     <Link
                       href="#"
-                      className="text-violet-500 hover:text-violet-600"
+                      className="text-primary hover:text-primary/80"
                     >
                       Terms of Service
                     </Link>{" "}
                     and{" "}
                     <Link
                       href="#"
-                      className="text-violet-500 hover:text-violet-600"
+                      className="text-primary hover:text-primary/80"
                     >
                       Privacy Policy
                     </Link>
@@ -340,7 +339,7 @@ export function SignUp2({ className, ...props }: React.ComponentProps<"div">) {
 
             <Button
               type="submit"
-              className="h-11 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700 hover:shadow-lg hover:shadow-violet-500/25"
+              className="h-11 w-full font-medium"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -375,7 +374,7 @@ export function SignUp2({ className, ...props }: React.ComponentProps<"div">) {
         <span className="text-muted-foreground">Already have an account? </span>
         <Link
           href="/sign-in-2"
-          className="text-violet-500 hover:text-violet-600 font-medium transition-colors"
+          className="text-primary hover:text-primary/80 font-medium transition-colors"
         >
           Sign in
         </Link>

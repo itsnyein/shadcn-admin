@@ -144,7 +144,7 @@ export function CustomerInsights() {
   );
 
   return (
-    <Card className="h-fit bg-linear-to-br from-violet-500/5 via-background to-background border-border/50 shadow-sm">
+    <Card className="h-fit bg-card border-border/50 shadow-sm">
       <CardHeader>
         <CardTitle>Customer Insights</CardTitle>
         <CardDescription>Growth trends and demographics</CardDescription>
@@ -177,16 +177,14 @@ export function CustomerInsights() {
 
           <TabsContent value="growth" className="mt-8 space-y-6">
             <div className="grid gap-6">
-              {/* Chart and Key Metrics Side by Side */}
               <div className="grid grid-cols-10 gap-6">
-                {/* Chart Area - 70% */}
                 <div className="col-span-10 xl:col-span-7">
                   <h3 className="text-sm font-medium text-muted-foreground mb-6">
                     Customer Growth Trends
                   </h3>
                   <ChartContainer
                     config={chartConfig}
-                    className="h-[375px] w-full"
+                    className="h-93.75 w-full"
                   >
                     <BarChart
                       data={customerGrowthData}
@@ -230,7 +228,6 @@ export function CustomerInsights() {
                   </ChartContainer>
                 </div>
 
-                {/* Key Metrics - 30% */}
                 <div className="col-span-10 xl:col-span-3 space-y-5">
                   <h3 className="text-sm font-medium text-muted-foreground mb-6">
                     Key Metrics

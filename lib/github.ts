@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-export const GITHUB_OWNER = "Its-Nyein";
+export const GITHUB_OWNER = "itsnyein";
 export const GITHUB_REPO = "shadcn-admin";
 export const GITHUB_URL = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`;
 

@@ -94,7 +94,7 @@ export function PaymentMethodsBreakdown() {
   );
 
   return (
-    <Card className="h-full border-border/50 bg-linear-to-br from-emerald-500/5 via-background to-background shadow-sm transition-shadow hover:shadow-md overflow-hidden min-w-0">
+    <Card className="h-full border-border/50 bg-card shadow-sm transition-shadow hover:shadow-md overflow-hidden min-w-0">
       <CardHeader className="flex flex-col space-y-4 pb-2 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
         <div>
           <CardTitle>Payment Methods</CardTitle>
@@ -123,7 +123,7 @@ export function PaymentMethodsBreakdown() {
             <div className="relative shrink-0">
               <ChartContainer
                 config={chartConfig}
-                className="h-[140px] w-[140px] sm:h-[180px] sm:w-[180px] mx-auto"
+                className="h-35 w-35 sm:h-45 sm:w-45 mx-auto"
               >
                 <PieChart>
                   <ChartTooltip

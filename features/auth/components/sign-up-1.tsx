@@ -87,7 +87,7 @@ export function SignUp1({ className, ...props }: React.ComponentProps<"div">) {
         <Card className="shadow-lg">
           <CardHeader className="space-y-1 pb-4">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-violet-500 to-fuchsia-500 text-sm font-bold text-white">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-bold">
                 SA
               </div>
             </div>
@@ -99,7 +99,6 @@ export function SignUp1({ className, ...props }: React.ComponentProps<"div">) {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            {/* Social Login Buttons */}
             <div className="grid grid-cols-2 gap-3">
               <Button
                 variant="outline"
@@ -350,14 +349,14 @@ export function SignUp1({ className, ...props }: React.ComponentProps<"div">) {
                         I agree to the{" "}
                         <Link
                           href="#"
-                          className="text-violet-500 hover:text-violet-600"
+                          className="text-primary hover:text-primary/80"
                         >
                           Terms of Service
                         </Link>{" "}
                         and{" "}
                         <Link
                           href="#"
-                          className="text-violet-500 hover:text-violet-600"
+                          className="text-primary hover:text-primary/80"
                         >
                           Privacy Policy
                         </Link>
@@ -368,7 +367,7 @@ export function SignUp1({ className, ...props }: React.ComponentProps<"div">) {
 
                 <Button
                   type="submit"
-                  className="h-11 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700 hover:shadow-lg hover:shadow-violet-500/25"
+                  className="h-11 w-full font-medium"
                   disabled={isLoading}
                 >
                   {isLoading ? (
@@ -402,7 +401,7 @@ export function SignUp1({ className, ...props }: React.ComponentProps<"div">) {
                   </span>
                   <Link
                     href="/sign-in-1"
-                    className="text-violet-500 hover:text-violet-600 font-medium transition-colors"
+                    className="text-primary hover:text-primary/80 font-medium transition-colors"
                   >
                     Sign in
                   </Link>

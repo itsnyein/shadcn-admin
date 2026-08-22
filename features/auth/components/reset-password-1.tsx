@@ -102,7 +102,6 @@ export default function ResetPassword1() {
   const handleOtpSubmit = async (data: OtpSchema) => {
     try {
       setIsLoading(true);
-      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
       console.log("OTP verified:", data.otp);
       setCurrentStep(3);
@@ -130,46 +129,24 @@ export default function ResetPassword1() {
 
   return (
     <div className="relative grid min-h-screen w-full lg:grid-cols-2">
-      {/* Left Column - Steps Info */}
-      <div className="relative hidden overflow-hidden bg-zinc-950 lg:block">
-        <div className="absolute inset-0 bg-linear-to-br from-violet-600/20 via-transparent to-cyan-600/20" />
-        <div className="absolute inset-0 bg-linear-to-tr from-fuchsia-600/10 via-transparent to-amber-600/10 animate-pulse" />
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px)`,
-            backgroundSize: "50px 50px",
-          }}
-        />
-
-        <div className="absolute top-1/4 left-1/4 h-72 w-72 rounded-full bg-linear-to-r from-violet-500 to-fuchsia-500 opacity-20 blur-3xl animate-[pulse_4s_ease-in-out_infinite]" />
-        <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-linear-to-r from-cyan-500 to-blue-500 opacity-20 blur-3xl animate-[pulse_5s_ease-in-out_infinite_1s]" />
-        <div className="absolute top-1/2 right-1/3 h-64 w-64 rounded-full bg-linear-to-r from-amber-500 to-orange-500 opacity-10 blur-3xl animate-[pulse_6s_ease-in-out_infinite_2s]" />
-
-        <div className="absolute top-20 right-20 h-20 w-20 rotate-45 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm animate-[bounce_6s_ease-in-out_infinite]" />
-        <div className="absolute bottom-32 left-20 h-16 w-16 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm animate-[bounce_5s_ease-in-out_infinite_1s]" />
-        <div className="absolute top-1/2 left-1/4 h-12 w-12 rotate-12 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm animate-[bounce_7s_ease-in-out_infinite_0.5s]" />
-
+      <div className="bg-muted/30 relative hidden overflow-hidden border-r border-dashed lg:block">
         <div className="relative z-10 flex h-full flex-col justify-between p-12">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-violet-500 to-fuchsia-500 text-lg font-bold text-white shadow-lg shadow-violet-500/25 transition-transform group-hover:scale-105">
+            <div className="bg-primary text-primary-foreground flex h-12 w-12 items-center justify-center rounded-xl text-lg font-bold transition-transform group-hover:scale-105">
               SA
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-semibold text-white">
-                Shadcn Admin
+              <span className="text-xl font-semibold">Shadcn Admin</span>
+              <span className="text-muted-foreground text-sm">
+                Admin Dashboard
               </span>
-              <span className="text-sm text-zinc-400">Admin Dashboard</span>
             </div>
           </Link>
 
           <div className="flex flex-col items-center justify-center space-y-8">
             <div className="text-center space-y-2">
-              <h2 className="text-3xl font-bold text-white">
-                Account Recovery
-              </h2>
-              <p className="text-zinc-400 max-w-md mx-auto">
+              <h2 className="text-3xl font-bold">Account Recovery</h2>
+              <p className="text-muted-foreground max-w-md mx-auto">
                 Securely reset your password in three simple steps. We&apos;ll
                 send you a one-time password to verify your email, then you can
                 set a new password for your account.
@@ -188,12 +165,11 @@ export default function ResetPassword1() {
                       className={cn(
                         "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-300",
                         isCompleted &&
-                          "border-green-500 bg-green-500/20 text-green-400",
-                        isActive &&
-                          "border-violet-500 bg-violet-500/20 text-violet-400",
+                          "border-primary bg-primary text-primary-foreground",
+                        isActive && "border-primary bg-primary/10 text-primary",
                         !isCompleted &&
                           !isActive &&
-                          "border-zinc-700 bg-zinc-800/50 text-zinc-500",
+                          "border-dashed text-muted-foreground",
                       )}
                     >
                       {isCompleted ? (
@@ -207,17 +183,17 @@ export default function ResetPassword1() {
                         <Icon
                           className={cn(
                             "size-4",
-                            isCompleted && "text-green-400",
-                            isActive && "text-violet-400",
-                            !isCompleted && !isActive && "text-zinc-500",
+                            isCompleted || isActive
+                              ? "text-primary"
+                              : "text-muted-foreground",
                           )}
                         />
                         <h3
                           className={cn(
                             "font-semibold",
-                            isCompleted && "text-green-400",
-                            isActive && "text-white",
-                            !isCompleted && !isActive && "text-zinc-500",
+                            isCompleted || isActive
+                              ? "text-foreground"
+                              : "text-muted-foreground",
                           )}
                         >
                           {step.title}
@@ -225,8 +201,8 @@ export default function ResetPassword1() {
                       </div>
                       <p
                         className={cn(
-                          "text-sm mt-0.5",
-                          isActive ? "text-zinc-300" : "text-zinc-600",
+                          "text-muted-foreground text-sm mt-0.5",
+                          !isActive && "opacity-70",
                         )}
                       >
                         {step.description}
@@ -239,7 +215,7 @@ export default function ResetPassword1() {
           </div>
 
           <div className="max-w-md space-y-4">
-            <blockquote className="text-lg italic text-zinc-300">
+            <blockquote className="text-muted-foreground text-lg italic">
               &ldquo;Your security is our priority. Rest assured your account is
               in safe hands.&rdquo;
             </blockquote>
@@ -247,25 +223,23 @@ export default function ResetPassword1() {
         </div>
       </div>
 
-      {/* Right Column - Reset Password Form */}
       <div className="flex items-center justify-center bg-background p-6 lg:p-12">
-        <div className="mx-auto w-full max-w-[400px] space-y-8">
+        <div className="mx-auto w-full max-w-100 space-y-8">
           <div className="flex items-center justify-center gap-3 lg:hidden">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-violet-500 to-fuchsia-500 text-sm font-bold text-white">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-bold">
               SA
             </div>
             <span className="text-lg font-semibold">Shadcn Admin</span>
           </div>
 
-          {/* Mobile Steps Indicator */}
           <div className="flex items-center justify-center gap-2 lg:hidden">
             {steps.map((step) => (
               <div
                 key={step.id}
                 className={cn(
                   "h-2 w-8 rounded-full transition-all",
-                  currentStep === step.id && "bg-violet-500",
-                  currentStep > step.id && "bg-green-500",
+                  currentStep === step.id && "bg-primary",
+                  currentStep > step.id && "bg-primary",
                   currentStep < step.id && "bg-muted",
                 )}
               />
@@ -276,7 +250,7 @@ export default function ResetPassword1() {
             <CardHeader className="space-y-1">
               <div className="flex items-center gap-2">
                 <CardTitle className="text-2xl">Reset Password</CardTitle>
-                <ShieldCheck className="size-5 text-violet-500" />
+                <ShieldCheck className="text-primary size-5" />
               </div>
               <CardDescription>
                 {currentStep === 1 &&
@@ -288,7 +262,6 @@ export default function ResetPassword1() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              {/* Step 1: Email */}
               {currentStep === 1 && (
                 <Form {...emailForm}>
                   <form
@@ -315,7 +288,7 @@ export default function ResetPassword1() {
                       )}
                     />
                     <Button
-                      className="h-12 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700 hover:shadow-lg hover:shadow-violet-500/25"
+                      className="h-12 w-full font-medium"
                       type="submit"
                       disabled={isLoading}
                     >
@@ -350,7 +323,6 @@ export default function ResetPassword1() {
                 </Form>
               )}
 
-              {/* Step 2: OTP */}
               {currentStep === 2 && (
                 <Form {...otpForm}>
                   <form
@@ -378,7 +350,7 @@ export default function ResetPassword1() {
                       )}
                     />
                     <Button
-                      className="h-12 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700 hover:shadow-lg hover:shadow-violet-500/25"
+                      className="h-12 w-full font-medium"
                       type="submit"
                       disabled={isLoading}
                     >
@@ -424,7 +396,6 @@ export default function ResetPassword1() {
                 </Form>
               )}
 
-              {/* Step 3: New Password */}
               {currentStep === 3 && (
                 <Form {...passwordForm}>
                   <form
@@ -501,7 +472,7 @@ export default function ResetPassword1() {
                       )}
                     />
                     <Button
-                      className="h-12 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700 hover:shadow-lg hover:shadow-violet-500/25"
+                      className="h-12 w-full font-medium"
                       type="submit"
                       disabled={isLoading}
                     >
@@ -542,7 +513,7 @@ export default function ResetPassword1() {
                 </span>
                 <Link
                   href="/sign-in"
-                  className="text-violet-500 hover:text-violet-600 font-medium transition-colors"
+                  className="text-primary hover:text-primary/80 font-medium transition-colors"
                 >
                   Sign in
                 </Link>

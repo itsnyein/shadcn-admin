@@ -1,35 +1,55 @@
+import { Skeleton } from "@/components/ui/skeleton";
 import SignIn from "@/features/auth/components/sign-in";
 import { Suspense } from "react";
 
 function SignInFallback() {
   return (
-    <div className="relative container grid min-h-screen flex-col items-center justify-center px-4 lg:max-w-none lg:grid-cols-2 lg:px-0">
-      <div className="bg-muted relative hidden h-full flex-col p-10 text-white lg:flex dark:border-r">
-        <div className="absolute inset-0 bg-zinc-900" />
-        <div className="relative z-20 flex h-full items-center justify-center text-lg font-medium">
-          <div className="flex items-center gap-3">
-            <div className="bg-primary text-primary-foreground flex h-10 w-10 items-center justify-center rounded-full text-lg font-semibold">
-              SA
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-semibold">Shadcn Admin</span>
-              <span className="text-muted-foreground text-sm">
-                Shadcn Admin Dashboard
-              </span>
-            </div>
+    <div className="grid min-h-svh lg:grid-cols-[1.05fr_1fr]">
+      <aside className="bg-muted/30 hidden border-r border-dashed lg:flex lg:flex-col lg:justify-between lg:p-12">
+        <div className="flex items-center gap-3">
+          <span className="bg-primary text-primary-foreground flex size-10 items-center justify-center rounded-lg text-sm font-bold">
+            SA
+          </span>
+          <span className="flex flex-col gap-1">
+            <span className="text-[15px] font-semibold tracking-tight">
+              Shadcn Admin
+            </span>
+            <span className="text-muted-foreground font-mono text-[10px] tracking-[0.14em] uppercase">
+              Admin Dashboard
+            </span>
+          </span>
+        </div>
+
+        <div className="max-w-md space-y-6">
+          <Skeleton className="h-3 w-40" />
+          <Skeleton className="h-9 w-full" />
+          <Skeleton className="h-9 w-3/4" />
+          <div className="space-y-3 border-y border-dashed py-4">
+            <Skeleton className="h-3 w-full" />
+            <Skeleton className="h-3 w-full" />
+            <Skeleton className="h-3 w-2/3" />
           </div>
         </div>
-      </div>
-      <div className="lg:p-8">
-        <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-          <div className="flex flex-col space-y-2 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">
-              Welcome Back
-            </h1>
-            <p className="text-muted-foreground text-sm">Loading...</p>
+
+        <span className="text-muted-foreground font-mono text-[10px] tracking-[0.14em] uppercase">
+          Free &amp; open source &middot; MIT
+        </span>
+      </aside>
+
+      <main className="flex items-center justify-center px-5 py-10 sm:px-8">
+        <div className="w-full max-w-sm space-y-6">
+          <Skeleton className="h-3 w-24" />
+          <Skeleton className="h-9 w-52" />
+          <Skeleton className="h-14 w-full" />
+          <div className="grid grid-cols-2 gap-3">
+            <Skeleton className="h-11 w-full" />
+            <Skeleton className="h-11 w-full" />
           </div>
+          <Skeleton className="h-11 w-full" />
+          <Skeleton className="h-11 w-full" />
+          <Skeleton className="h-11 w-full" />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

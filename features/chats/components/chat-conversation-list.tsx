@@ -109,7 +109,6 @@ export function ChatConversationList({
         </DropdownMenu>
       </div>
 
-      {/* Search */}
       <div className="px-4 py-3 border-b shrink-0">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 size-4 text-muted-foreground" />
@@ -123,7 +122,6 @@ export function ChatConversationList({
         </div>
       </div>
 
-      {/* Conversations */}
       <ScrollArea className="flex-1 h-0 min-h-0">
         <div className="p-2 space-y-1">
           {sortedConversations.map((conversation) => (
@@ -137,7 +135,6 @@ export function ChatConversationList({
               )}
               onClick={() => onSelectConversation(conversation.id)}
             >
-              {/* Avatar with online indicator */}
               <div className="relative shrink-0">
                 <Avatar
                   className={cn(
@@ -150,7 +147,7 @@ export function ChatConversationList({
                     src={conversation.avatar}
                     alt={conversation.name}
                   />
-                  <AvatarFallback className="text-sm bg-linear-to-br from-primary/20 to-primary/10">
+                  <AvatarFallback className="text-sm bg-primary/10">
                     {conversation.type === "group" ? (
                       <Users className="size-5 text-primary" />
                     ) : (
@@ -163,21 +160,18 @@ export function ChatConversationList({
                   </AvatarFallback>
                 </Avatar>
 
-                {/* Online indicator for direct messages */}
                 {conversation.type === "direct" &&
                   getOnlineStatus(conversation) && (
                     <div className="absolute bottom-0 right-0 h-3.5 w-3.5 bg-green-500 border-2 border-background rounded-full animate-pulse" />
                   )}
 
-                {/* Group indicator */}
                 {conversation.type === "group" && (
-                  <div className="absolute bottom-0 right-0 size-4 bg-blue-500 border-2 border-background rounded-full flex items-center justify-center">
+                  <div className="absolute bottom-0 right-0 size-4 bg-primary border-2 border-background rounded-full flex items-center justify-center">
                     <Hash className="size-2 text-white" />
                   </div>
                 )}
               </div>
 
-              {/* Content */}
               <div className="flex-1 min-w-0 overflow-hidden">
                 <div className="flex items-center justify-between mb-1 min-w-0">
                   <div className="flex items-center gap-1 min-w-0 flex-1 overflow-hidden pr-2">
@@ -201,7 +195,6 @@ export function ChatConversationList({
                     {conversation.lastMessage.content}
                   </p>
 
-                  {/* Unread count */}
                   {conversation.unreadCount > 0 && (
                     <Badge
                       variant="default"

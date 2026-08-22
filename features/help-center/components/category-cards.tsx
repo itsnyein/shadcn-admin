@@ -18,9 +18,9 @@ const categories = [
     title: "Getting Started",
     description: "New to the platform? Start here",
     icon: Sparkles,
-    color: "text-violet-500",
-    bgColor: "bg-violet-500/10",
-    borderColor: "border-violet-500/20",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
+    borderColor: "border-border",
     articleCount: 12,
   },
   {

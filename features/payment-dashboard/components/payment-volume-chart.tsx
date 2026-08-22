@@ -72,7 +72,7 @@ export function PaymentVolumeChart() {
   const isMobile = useIsMobile();
 
   return (
-    <Card className="h-full border-border/50 bg-linear-to-br from-blue-500/5 via-background to-background shadow-sm transition-shadow hover:shadow-md overflow-hidden min-w-0">
+    <Card className="h-full border-border/50 bg-card shadow-sm transition-shadow hover:shadow-md overflow-hidden min-w-0">
       <CardHeader className="flex flex-col space-y-4 pb-2 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
         <div>
           <CardTitle>Payment Volume</CardTitle>
@@ -133,12 +133,12 @@ export function PaymentVolumeChart() {
                   <stop
                     offset="5%"
                     stopColor="var(--color-volume)"
-                    stopOpacity={0.4}
+                    stopOpacity={0.2}
                   />
                   <stop
                     offset="95%"
                     stopColor="var(--color-volume)"
-                    stopOpacity={0.05}
+                    stopOpacity={0.2}
                   />
                 </linearGradient>
                 <linearGradient
@@ -151,12 +151,12 @@ export function PaymentVolumeChart() {
                   <stop
                     offset="5%"
                     stopColor="var(--color-transactions)"
-                    stopOpacity={0.4}
+                    stopOpacity={0.12}
                   />
                   <stop
                     offset="95%"
                     stopColor="var(--color-transactions)"
-                    stopOpacity={0.05}
+                    stopOpacity={0.12}
                   />
                 </linearGradient>
               </defs>
