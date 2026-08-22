@@ -8,7 +8,7 @@ export default function SignIn2Page() {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link href="/" className="flex items-center gap-2 font-medium">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-linear-to-br from-violet-500 to-fuchsia-500 text-sm font-bold text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-bold">
               SA
             </div>
             <span>Shadcn Admin</span>
@@ -28,7 +28,7 @@ export default function SignIn2Page() {
           className="object-cover dark:brightness-[0.7]"
           priority
         />
-        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute bottom-12 left-12 right-12 text-white">
           <blockquote className="space-y-4">
             <p className="text-xl font-medium leading-relaxed">

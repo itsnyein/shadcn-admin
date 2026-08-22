@@ -48,7 +48,6 @@ interface CalendarsProps {
   onNewCalendar?: () => void;
 }
 
-// Enhanced calendar data with colors and visibility
 const enhancedCalendars: CalendarGroup[] = [
   {
     name: "Work",
@@ -147,7 +146,7 @@ export function Calendars({
       {calendarData.map((calendar, index) => (
         <div key={calendar.name}>
           <Collapsible defaultOpen={index === 0} className="group/collapsible">
-            <CollapsibleTrigger className="flex items-center justify-between w-full p-2 hover:bg-violet-500/10 hover:text-accent-foreground rounded-md cursor-pointer">
+            <CollapsibleTrigger className="flex items-center justify-between w-full p-2 hover:bg-muted/50 hover:text-accent-foreground rounded-md cursor-pointer">
               <span className="text-sm font-medium">{calendar.name}</span>
               <div className="flex items-center gap-1">
                 {index === 0 && (
@@ -169,9 +168,8 @@ export function Calendars({
               <div className="mt-2 space-y-1">
                 {calendar.items.map((item) => (
                   <div key={item.id} className="group/calendar-item">
-                    <div className="flex items-center justify-between p-2 hover:bg-violet-500/5 rounded-md">
+                    <div className="flex items-center justify-between p-2 hover:bg-muted/50 rounded-md">
                       <div className="flex items-center gap-3 flex-1">
-                        {/* Calendar Color & Visibility Toggle */}
                         <button
                           onClick={() => handleToggleVisibility(item.id)}
                           className={cn(
@@ -184,7 +182,6 @@ export function Calendars({
                           {item.visible && <Check className="size-3" />}
                         </button>
 
-                        {/* Calendar Name */}
                         <span
                           className={cn(
                             "flex-1 truncate text-sm cursor-pointer",
@@ -195,7 +192,6 @@ export function Calendars({
                           {item.name}
                         </span>
 
-                        {/* Visibility Icon */}
                         <div className="opacity-0 group-hover/calendar-item:opacity-100">
                           {item.visible ? (
                             <Eye className="h-3 w-3 text-muted-foreground" />
@@ -204,7 +200,6 @@ export function Calendars({
                           )}
                         </div>
 
-                        {/* More Options */}
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
                             <div

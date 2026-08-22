@@ -60,7 +60,7 @@ export function SalesChart() {
   );
 
   return (
-    <Card className="cursor-pointer bg-linear-to-br from-violet-500/5 via-background to-background border-border/50 shadow-sm hover:shadow-md transition-shadow">
+    <Card className="cursor-pointer bg-card border-border/50 shadow-sm hover:shadow-md transition-shadow">
       <CardHeader className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 pb-2">
         <div>
           <CardTitle>Sales Performance</CardTitle>
@@ -92,7 +92,7 @@ export function SalesChart() {
         <div className="px-3 sm:px-6 pb-6">
           <ChartContainer
             config={chartConfig}
-            className="h-[250px] sm:h-[350px] w-full"
+            className="h-62.5 sm:h-87.5 w-full"
           >
             <AreaChart
               data={salesData}
@@ -103,24 +103,24 @@ export function SalesChart() {
                   <stop
                     offset="5%"
                     stopColor="var(--color-sales)"
-                    stopOpacity={0.4}
+                    stopOpacity={0.2}
                   />
                   <stop
                     offset="95%"
                     stopColor="var(--color-sales)"
-                    stopOpacity={0.05}
+                    stopOpacity={0.2}
                   />
                 </linearGradient>
                 <linearGradient id="colorTarget" x1="0" y1="0" x2="0" y2="1">
                   <stop
                     offset="5%"
                     stopColor="var(--color-target)"
-                    stopOpacity={0.2}
+                    stopOpacity={0.1}
                   />
                   <stop
                     offset="95%"
                     stopColor="var(--color-target)"
-                    stopOpacity={0}
+                    stopOpacity={0.1}
                   />
                 </linearGradient>
               </defs>

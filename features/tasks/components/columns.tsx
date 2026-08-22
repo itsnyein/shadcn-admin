@@ -22,7 +22,7 @@ export const columns: ColumnDef<Task>[] = [
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
-        className="translate-y-[2px]"
+        className="translate-y-0.5"
       />
     ),
     cell: ({ row }) => (
@@ -30,7 +30,7 @@ export const columns: ColumnDef<Task>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
-        className="translate-y-[2px]"
+        className="translate-y-0.5"
       />
     ),
     enableSorting: false,
@@ -42,7 +42,7 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Task" />
     ),
     cell: ({ row }) => (
-      <div className="w-[90px] font-mono text-xs text-muted-foreground">
+      <div className="w-22.5 font-mono text-xs text-muted-foreground">
         {row.getValue("id")}
       </div>
     ),
@@ -67,13 +67,13 @@ export const columns: ColumnDef<Task>[] = [
                 label.value === "bug" &&
                   "border-red-500/50 bg-red-500/10 text-red-600 dark:text-red-400",
                 label.value === "feature" &&
-                  "border-violet-500/50 bg-violet-500/10 text-violet-600 dark:text-violet-400",
+                  "border-primary/50 bg-primary/10 text-primary",
               )}
             >
               {label.label}
             </Badge>
           )}
-          <span className="max-w-[400px] truncate font-medium">
+          <span className="max-w-100 truncate font-medium">
             {row.getValue("title")}
           </span>
         </div>

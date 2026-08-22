@@ -116,35 +116,30 @@ export default function ResetPassword2() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <div className="w-full max-w-md space-y-8">
-        {/* Logo */}
         <div className="flex items-center justify-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-violet-500 to-fuchsia-500 text-sm font-bold text-white">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-bold">
             SA
           </div>
           <span className="text-lg font-semibold">Shadcn Admin</span>
         </div>
 
-        {/* Card */}
         <div className="rounded-xl border bg-card p-8 shadow-sm">
-          {/* Header */}
           <div className="mb-6 space-y-2 text-center">
             <h1 className="text-2xl font-bold">Reset Your Password</h1>
 
-            {/* Progress Bar */}
             <div className="flex items-center justify-center gap-2 pt-2">
               {[1, 2, 3, 4].map((step) => (
                 <div
                   key={step}
                   className={cn(
                     "h-1.5 w-12 rounded-full transition-all",
-                    currentStep >= step ? "bg-violet-500" : "bg-muted",
+                    currentStep >= step ? "bg-primary" : "bg-muted",
                   )}
                 />
               ))}
             </div>
           </div>
 
-          {/* Step 1: Identify Account */}
           {currentStep === 1 && (
             <div className="space-y-6">
               <div className="space-y-2 text-center">
@@ -199,7 +194,7 @@ export default function ResetPassword2() {
                     )}
                   />
                   <Button
-                    className="h-12 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700"
+                    className="h-12 w-full font-medium"
                     type="submit"
                     disabled={isLoading}
                   >
@@ -235,7 +230,6 @@ export default function ResetPassword2() {
             </div>
           )}
 
-          {/* Step 2: Security Question */}
           {currentStep === 2 && (
             <div className="space-y-6">
               <div className="space-y-2 text-center">
@@ -244,16 +238,15 @@ export default function ResetPassword2() {
                 </p>
               </div>
 
-              {/* Account Found Badge */}
               <div className="rounded-lg border bg-muted/30 p-4 space-y-3">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="size-4 text-green-500" />
+                  <CheckCircle2 className="text-primary size-4" />
                   <span className="text-sm font-medium">Account Found</span>
                 </div>
                 <p className="text-sm text-muted-foreground">{email}</p>
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="size-4 text-amber-500" />
-                  <span className="text-sm text-amber-600 dark:text-amber-400">
+                  <ShieldCheck className="text-muted-foreground size-4" />
+                  <span className="text-muted-foreground text-sm">
                     Pending Verification
                   </span>
                 </div>
@@ -318,7 +311,7 @@ export default function ResetPassword2() {
                     )}
                   />
                   <Button
-                    className="h-12 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700"
+                    className="h-12 w-full font-medium"
                     type="submit"
                     disabled={isLoading}
                   >
@@ -354,7 +347,6 @@ export default function ResetPassword2() {
             </div>
           )}
 
-          {/* Step 3: New Password */}
           {currentStep === 3 && (
             <div className="space-y-6">
               <div className="space-y-2 text-center">
@@ -440,7 +432,7 @@ export default function ResetPassword2() {
                     )}
                   />
                   <Button
-                    className="h-12 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700"
+                    className="h-12 w-full font-medium"
                     type="submit"
                     disabled={isLoading}
                   >
@@ -476,7 +468,6 @@ export default function ResetPassword2() {
             </div>
           )}
 
-          {/* Step 4: Success */}
           {currentStep === 4 && (
             <div className="space-y-6">
               <div className="space-y-2 text-center">
@@ -485,10 +476,9 @@ export default function ResetPassword2() {
                 </p>
               </div>
 
-              {/* Success Icon */}
               <div className="flex justify-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
-                  <CheckCircle2 className="size-8 text-green-600 dark:text-green-400" />
+                  <CheckCircle2 className="text-primary size-8" />
                 </div>
               </div>
 
@@ -501,12 +491,9 @@ export default function ResetPassword2() {
               </div>
 
               <Link href="/sign-in">
-                <Button className="h-12 w-full bg-linear-to-r from-violet-600 to-fuchsia-600 font-medium text-white transition-all hover:from-violet-700 hover:to-fuchsia-700">
-                  Sign In
-                </Button>
+                <Button className="h-12 w-full font-medium">Sign In</Button>
               </Link>
 
-              {/* Security Recommendations */}
               <div className="rounded-lg border bg-muted/30 p-4 space-y-3 mt-6">
                 <div className="flex items-center gap-2">
                   <Lock className="size-4 text-muted-foreground" />
@@ -532,7 +519,6 @@ export default function ResetPassword2() {
             </div>
           )}
 
-          {/* Sign In Link */}
           {currentStep !== 4 && (
             <div className="mt-6 text-center text-sm">
               <span className="text-muted-foreground">
@@ -540,7 +526,7 @@ export default function ResetPassword2() {
               </span>
               <Link
                 href="/sign-in"
-                className="text-violet-500 hover:text-violet-600 font-medium transition-colors"
+                className="text-primary hover:text-primary/80 font-medium transition-colors"
               >
                 Sign in instead
               </Link>

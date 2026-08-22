@@ -40,11 +40,8 @@ export function TeamSwitcher({
               size="lg"
               className="group/team relative overflow-hidden data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              {/* Gradient Logo Container */}
-              <div className="relative flex aspect-square size-8 items-center justify-center rounded-lg bg-linear-to-br from-violet-500 to-fuchsia-500 shadow-md shadow-violet-500/20 transition-transform group-hover/team:scale-105">
-                <activeTeam.logo className="size-4 text-white" />
-                {/* Shine effect */}
-                <div className="absolute inset-0 rounded-lg bg-linear-to-br from-white/20 to-transparent" />
+              <div className="bg-primary relative flex aspect-square size-8 items-center justify-center rounded-lg transition-transform group-hover/team:scale-105">
+                <activeTeam.logo className="text-primary-foreground size-4" />
               </div>
 
               {!isCollapsed && (
@@ -77,8 +74,8 @@ export function TeamSwitcher({
                 onClick={() => setActiveTeam(team)}
                 className="gap-3 p-2.5 cursor-pointer rounded-lg transition-colors"
               >
-                <div className="flex size-8 items-center justify-center rounded-lg bg-linear-to-br from-violet-500/10 to-fuchsia-500/10 border border-violet-500/20">
-                  <team.logo className="size-4 text-violet-600 dark:text-violet-400" />
+                <div className="flex size-8 items-center justify-center rounded-lg bg-primary/10 border border-border">
+                  <team.logo className="size-4 text-primary" />
                 </div>
                 <div className="flex-1">
                   <div className="font-medium">{team.name}</div>

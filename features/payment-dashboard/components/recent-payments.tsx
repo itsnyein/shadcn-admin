@@ -194,7 +194,7 @@ const methodIcons: Record<PaymentMethod, React.ReactNode> = {
 
 export function RecentPayments() {
   return (
-    <Card className="h-full border-border/50 bg-linear-to-br from-violet-500/5 via-background to-background shadow-sm transition-shadow hover:shadow-md overflow-hidden min-w-0">
+    <Card className="h-full border-border/50 bg-card shadow-sm transition-shadow hover:shadow-md overflow-hidden min-w-0">
       <CardHeader className="flex flex-col gap-4 pb-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
         <div>
           <CardTitle>Recent Payments</CardTitle>
